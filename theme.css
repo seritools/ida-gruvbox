@@ -528,8 +528,7 @@ CustomIDAMemo
     qproperty-line-fg-regular-data-name: ${color_bright_cyan};
     /* hexrays: globals */
     qproperty-line-fg-demangled-name: ${color_bright_green};
-    /* hexrays: local vars */
-    qproperty-line-fg-libfunc: ${color_foreground};
+
     /* hexrays: same */
     qproperty-line-fg-import-name: ${color_bright_purple};
     /* hexrays: casts, local function name */
@@ -545,8 +544,18 @@ CustomIDAMemo
     /* hexrays: inline strings */
     qproperty-line-fg-locvar: ${color_bright_yellow};
 
+    qproperty-line-fg-collapsed-line: ${color_green};
+
+    /* hexrays: local vars */
+    qproperty-line-fg-libfunc: ${color_foreground};
+    qproperty-line-pfx-libfunc: ${color_purple};
+    qproperty-line-pfx-extern: ${color_bright_purple};
+
     qproperty-line-pfx-current-line: ${color_foreground_lighter};
     qproperty-line-pfx-insn: ${color_red};
+
+    qproperty-line-pfx-unexplored: #9d9d00;
+    qproperty-line-fg-dummy-unknown-name: #97e300;
 
     qproperty-line-bg-default: ${color_background};
     qproperty-line-bg-selected: ${color_background_lighter};
