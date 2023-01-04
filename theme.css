@@ -580,6 +580,8 @@ CustomIDAMemo[debugging="true"]
 
 CustomIDAMemo[hints="true"]
 {
+    margin-left: 32px;
+    margin-right: 32px;
     qproperty-line-bg-default: ${color_background_darker};
 }
 
