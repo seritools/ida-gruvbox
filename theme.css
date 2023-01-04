@@ -474,30 +474,30 @@ text_area_t
     qproperty-keyword1-fg: ${color_bright_red};
     qproperty-keyword1-weight: 0;
     qproperty-keyword1-italic: 0;
-    qproperty-number-fg: ${color_purple};
-    qproperty-number-weight: 0;
-    qproperty-number-italic: 0;
 
-    /* TODO: do these */
-    qproperty-keyword2-fg: purple;
+    qproperty-keyword2-fg: ${color_bright_cyan};
     qproperty-keyword2-weight: 0;
     qproperty-keyword2-italic: 0;
 
-    qproperty-keyword3-fg: red;
+    qproperty-keyword3-fg: ${color_bright_green};
     qproperty-keyword3-weight: 0;
     qproperty-keyword3-italic: 0;
 
-    qproperty-string-fg: darkred;
+    qproperty-string-fg: ${color_bright_yellow};
     qproperty-string-weight: 0;
     qproperty-string-italic: 0;
 
-    qproperty-comment-fg: darkgreen;
+    qproperty-comment-fg: ${color_foreground_soft};
     qproperty-comment-weight: 0;
     qproperty-comment-italic: 1;
 
-    qproperty-preprocessor-fg: blue;
+    qproperty-preprocessor-fg: ${color_bright_blue};
     qproperty-preprocessor-weight: 1;
     qproperty-preprocessor-italic: 0;
+
+    qproperty-number-fg: ${color_bright_purple};
+    qproperty-number-weight: 0;
+    qproperty-number-italic: 0;
 }
 
 CustomIDAMemo
