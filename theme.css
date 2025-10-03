@@ -37,21 +37,13 @@
 @def ui_font "Segoe UI";
 @def ui_font_size 9pt;
 
-/*
- * since some combo boxes don't resize (e.g. in rename/set type dialog)
- * set a better minimum width here
- */
-@def editable_combobox_min_width 1200px;
-
-/* somehow this needs to be here or the style breaks */
-DockWidget {}
-
-DockWidgetTitle, DockAreaDragTitle {
-    border: none;
+QDialog QComboBox:editable {
+    /* hack for the "Please enter the type declaration" box being fixed-size... */
+    min-width: 800px;
 }
 
 DockWidgetTitle {
-    min-height: 36px;
+    min-height: 0;
 }
 
 DockWidgetTitle[active="true"] {
@@ -59,26 +51,22 @@ DockWidgetTitle[active="true"] {
 }
 
 DockWidgetTitle QPushButton {
-    height: 26px;
     min-width: 42px;
     padding: 0;
 }
 
 DockWidget > QWidget > QAbstractButton
 {
-    background-color: transparent;
+    background-color: none;
     border: none;
 }
 
-DockWidgetTitle QPushButton:hover,
-DockWidgetTitle[active="true"] QPushButton:hover  {
+DockWidgetTitle QPushButton:hover {
     background: ${color_foreground_soft};
-    border: none;
 }
 
 DockWidgetTitle QPushButton:pressed {
     background: ${color_foreground};
-    border: none;
 }
 
 DockWidgetTitle QPushButton[toolTip="Close"] {
@@ -105,13 +93,44 @@ standalone_dirtree_widget_t
 
 log_widget_t
 {
+    border: none;
     color: ${color_foreground};
     background-color: ${color_background};
 }
 
-text_area_t QWidget
+text_area_t
 {
-    background-color: transparent;
+    qproperty-keyword1-fg: ${color_bright_red};
+    qproperty-keyword1-weight: 0;
+    qproperty-keyword1-italic: 0;
+
+    qproperty-keyword2-fg: ${color_bright_cyan};
+    qproperty-keyword2-weight: 0;
+    qproperty-keyword2-italic: 0;
+
+    qproperty-keyword3-fg: ${color_bright_green};
+    qproperty-keyword3-weight: 0;
+    qproperty-keyword3-italic: 0;
+
+    qproperty-string-fg: ${color_bright_yellow};
+    qproperty-string-weight: 0;
+    qproperty-string-italic: 0;
+
+    qproperty-comment-fg: ${color_foreground_soft};
+    qproperty-comment-weight: 0;
+    qproperty-comment-italic: 1;
+
+    qproperty-preprocessor-fg: ${color_bright_blue};
+    qproperty-preprocessor-weight: 1;
+    qproperty-preprocessor-italic: 0;
+
+    qproperty-number-fg: ${color_bright_purple};
+    qproperty-number-weight: 0;
+    qproperty-number-italic: 0;
+
+    qproperty-user1-fg: ${color_bright_purple};
+    qproperty-number-weight: 0;
+    qproperty-number-italic: 0;
 }
 
 text_area_t text_area_margin_widget_t
@@ -126,77 +145,73 @@ QWidget
     color: ${color_foreground};
 }
 
-QRadioButton, QCheckBox, QLabel {
-    background: transparent;
-}
-
 QCheckBox::indicator, QRadioButton::indicator {
-	width: 28px;
-	height: 28px;
+    width: 20px;
+    height: 20px;
 }
 
 QRadioButton::indicator:checked {
-	image: url("$RELPATH/images/radio-checked.png");
+    image: url("$RELPATH/images/radio-checked.png");
 }
 
 QRadioButton::indicator:checked:hover {
-	image: url("$RELPATH/images/radio-checked-hover.png");
+    image: url("$RELPATH/images/radio-checked-hover.png");
 }
 
 QRadioButton::indicator:checked:pressed {
-	image: url("$RELPATH/images/radio-checked-pressed.png");
+    image: url("$RELPATH/images/radio-checked-pressed.png");
 }
 
 QRadioButton::indicator:checked:disabled {
-	image: url("$RELPATH/images/radio-checked-disabled.png");
+    image: url("$RELPATH/images/radio-checked-disabled.png");
 }
 
 QRadioButton::indicator:unchecked {
-	image: url("$RELPATH/images/radio-unchecked.png");
+    image: url("$RELPATH/images/radio-unchecked.png");
 }
 
 QRadioButton::indicator:unchecked:hover {
-	image: url("$RELPATH/images/radio-unchecked-hover.png");
+    image: url("$RELPATH/images/radio-unchecked-hover.png");
 }
 
 QRadioButton::indicator:unchecked:pressed {
-	image: url("$RELPATH/images/radio-unchecked-pressed.png");
+    image: url("$RELPATH/images/radio-unchecked-pressed.png");
 }
 
 QRadioButton::indicator:unchecked:disabled {
-	image: url("$RELPATH/images/radio-unchecked-disabled.png");
+    image: url("$RELPATH/images/radio-unchecked-disabled.png");
 }
 
 QCheckBox::indicator:checked {
-	image: url("$RELPATH/images/checkbox-checked.png");
+    image: url("$RELPATH/images/checkbox-checked.png");
 }
 
 QCheckBox::indicator:unchecked {
-	image: url("$RELPATH/images/checkbox-unchecked.png");
+    image: url("$RELPATH/images/checkbox-unchecked.png");
 }
 
 QCheckBox::indicator:checked:hover {
-	image: url("$RELPATH/images/checkbox-checked-hover.png");
+    image: url("$RELPATH/images/checkbox-checked-hover.png");
 }
 
 QCheckBox::indicator:unchecked:hover {
-	image: url("$RELPATH/images/checkbox-unchecked-hover.png");
+    image: url("$RELPATH/images/checkbox-unchecked-hover.png");
 }
 
 QCheckBox::indicator:checked:pressed {
-	image: url("$RELPATH/images/checkbox-checked-pressed.png");
+    image: url("$RELPATH/images/checkbox-checked-pressed.png");
 }
 
 QCheckBox::indicator:unchecked:pressed {
-	image: url("$RELPATH/images/checkbox-unchecked-pressed.png");
+    image: url("$RELPATH/images/checkbox-unchecked-pressed.png");
 }
 
 QCheckBox::indicator:checked:disabled {
-	image: url("$RELPATH/images/checkbox-checked-disabled.png");
+    image: url("$RELPATH/images/checkbox-checked-disabled.png");
 }
 
 QCheckBox::indicator:unchecked:disabled {
-	image: url("$RELPATH/images/checkbox-unchecked-disabled.png");
+    image: url("$RELPATH/images/checkbox-unchecked-disabled.png");
 }
 
 QTextEdit,
@@ -205,9 +220,6 @@ QLineEdit
 {
     background-color: ${color_background};
     border: 1px solid transparent;
-    border-radius: 0;
-    padding-top: 4px;
-    padding-bottom: 4px;
 }
 
 QLineEdit:hover,
@@ -232,14 +244,14 @@ QMenuBar
 }
 
 QMenuBar::item {
-    padding: 4px 16px;
+    padding: 3px 16px;
     background-color: transparent;
     color: ${color_foreground};
 }
 
 QMenu::item {
-    margin: 2px 12px;
-    padding: 4px 16px;
+    margin: 2px 8px;
+    padding: 4px 12px;
 }
 
 QMenuBar::item:selected,
@@ -254,6 +266,7 @@ QMenu::item:disabled
 }
 
 /* Tab Widget */
+
 QTabWidget::tab-bar {
     border-top: 2px solid ${color_background_lighter};
 }
@@ -264,7 +277,7 @@ QTabWidget::pane {
 
 QTabBar::tab {
     background-color: ${color_background_darker};
-    padding: 8px 16px;
+    padding: 6px 16px;
 }
 
 QTabBar::tab:selected {
@@ -280,6 +293,8 @@ QTableView
 QScrollBar
 {
     background-color: ${color_background_darker};
+    width: 16px;
+    height: 16px;
 }
 
 QScrollBar::handle
@@ -297,38 +312,33 @@ QHeaderView::section
 }
 
 QHeaderView::down-arrow {
-    width: 12px;
-    height: 12px;
+    width: 8px;
+    height: 8px;
     subcontrol-origin:padding;
     subcontrol-position: center top;
     image: url("$RELPATH/images/arrow-down-normal.png");
 }
 
 QHeaderView::up-arrow {
-    width: 12px;
-    height: 12px;
+    width: 8px;
+    height: 8px;
     subcontrol-origin:padding;
     subcontrol-position: center top;
     image: url("$RELPATH/images/arrow-up-normal.png");
 }
 
-QToolButton {
-    min-width: 24px;
-    min-height: 24px;
-}
+/* regular buttons */
 
 QPushButton {
-    border: 0;
+    border: 1px solid transparent;
     background: ${color_background_lighter};
     text-align: center;
-    /* min-height: 28px; */
-    min-width: 100px;
-    padding: 8px;
-    min-width: 90px;
+    padding: 3px;
+    min-width: 80px;
 }
 
 QPushButton:default {
-    border: 2px solid ${color_foreground_soft};
+    border: 1px solid ${color_foreground_soft};
 }
 
 QPushButton:hover {
@@ -352,32 +362,21 @@ QPushButton:!enabled {
 
 QComboBox {
     border: 1px solid transparent;
-    border-radius: 0px;
-    background-color: ${color_background};
-    color: ${color_foreground};
-    /*  KLUDGE: https://stackoverflow.com/questions/24447276/qcombobox-text-colour-wont-change-with-style-sheet */
-    padding: 2px 0px 2px 4px;
-    min-height: 32px;
+    padding: 1px 0px 1px 4px;
+    min-height: 24px;
+    font-weight: 400;
     font-family: ${code_font};
     font-size: ${smaller_code_font_size};
 }
 
-/* keep toolback combo box small */
-QToolBar QComboBox {
-    min-height: 0;
-}
-
-QComboBox:!editable {
+QComboBox:!editable, QComboBox:disabled {
     background-color: ${color_background};
 }
 
 QComboBox:editable {
-    min-width: ${editable_combobox_min_width};
     font-family: ${code_font};
-    font-size: ${code_font_size};
 }
 
-/* fix calculator and etc edits */
 QComboBox > QLineEdit {
     background-color: transparent;
     padding: 0;
@@ -410,12 +409,12 @@ QComboBox::drop-down {
     border-left-width: 2px;
     border-left-color: ${color_foreground_soft};
     border-left-style: solid;
-    width: 32px;
+    width: 24px;
 }
 
 QComboBox::down-arrow {
-    width: 12px;
-    height: 12px;
+    width: 8px;
+    height: 8px;
     image: url("$RELPATH/images/arrow-down-normal.png");
 }
 
@@ -442,6 +441,11 @@ QComboBox QAbstractItemView::disabled {
     color: ${color_foreground_soft};
 }
 
+/* keep toolbar combo box small */
+QToolBar QComboBox {
+    min-height: unset;
+}
+
 QStatusBar::item
 {
     border: 0;
@@ -465,39 +469,17 @@ QTableView::item:selected,
 QTreeView::branch:selected
 {
     background-color: ${color_background_contrast};
-    border-top: 1px solid ${color_foreground};
-    border-bottom: 1px solid ${color_foreground};
+    border-top: 1px solid ${color_foreground_soft};
+    border-bottom: 1px solid ${color_foreground_soft};
 }
 
-text_area_t
+QToolTip,
+QTipLabel
 {
-    qproperty-keyword1-fg: ${color_bright_red};
-    qproperty-keyword1-weight: 0;
-    qproperty-keyword1-italic: 0;
-
-    qproperty-keyword2-fg: ${color_bright_cyan};
-    qproperty-keyword2-weight: 0;
-    qproperty-keyword2-italic: 0;
-
-    qproperty-keyword3-fg: ${color_bright_green};
-    qproperty-keyword3-weight: 0;
-    qproperty-keyword3-italic: 0;
-
-    qproperty-string-fg: ${color_bright_yellow};
-    qproperty-string-weight: 0;
-    qproperty-string-italic: 0;
-
-    qproperty-comment-fg: ${color_foreground_soft};
-    qproperty-comment-weight: 0;
-    qproperty-comment-italic: 1;
-
-    qproperty-preprocessor-fg: ${color_bright_blue};
-    qproperty-preprocessor-weight: 1;
-    qproperty-preprocessor-italic: 0;
-
-    qproperty-number-fg: ${color_bright_purple};
-    qproperty-number-weight: 0;
-    qproperty-number-italic: 0;
+    border: 1px solid ${color_foreground_soft};
+    border-radius: 0;
+    background: ${color_background_contrast};
+    color: ${default_text_color};
 }
 
 CustomIDAMemo
@@ -587,25 +569,35 @@ CustomIDAMemo[hints="true"]
 
 navband_t {
     qproperty-extern: #d8a0df;
-	qproperty-error: #d85050;
-	qproperty-auto-analysis-cursor: #ffaa00;
-	qproperty-lumina-function: #46a34c;
+    qproperty-error: #d85050;
+    qproperty-auto-analysis-cursor: #ffaa00;
+    qproperty-lumina-function: #46a34c;
 
-	qproperty-cursor: #ffff7f;
+    qproperty-cursor: #ffff7f;
 
     qproperty-function: ${color_blue};
-	qproperty-hl-function: ${color_blue};
+    qproperty-hl-function: ${color_blue};
 
-	qproperty-lib-function: ${color_purple};
-	qproperty-hl-lib-function: ${color_purple};
+    qproperty-lib-function: ${color_purple};
+    qproperty-hl-lib-function: ${color_purple};
 
-	qproperty-code: ${color_red};
-	qproperty-hl-code: ${color_red};
+    qproperty-code: ${color_red};
+    qproperty-hl-code: ${color_red};
 
     qproperty-undefined: ${color_background_lighter};
-	qproperty-hl-undefined: ${color_background_lighter};
-	qproperty-data: ${color_foreground_soft};
-	qproperty-gap: ${color_background_darker};
+    qproperty-hl-undefined: ${color_background_lighter};
+    qproperty-data: ${color_foreground_soft};
+    qproperty-gap: ${color_background_darker};
+}
+
+TNavBand > QPushButton,
+nav_scroll_button_t,
+RegJumpButton
+{
+    min-height: 0;
+    min-width: 0;
+    padding: 0;
+    border: none;
 }
 
 TCpuRegs
