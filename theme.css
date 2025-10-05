@@ -552,6 +552,15 @@ CustomIDAMemo
     qproperty-graph-node-title-normal: ${color_background};
     qproperty-graph-node-title-selected: ${color_foreground_soft};
     qproperty-graph-node-title-current: ${color_foreground_soft};
+
+    /* dereferencing and debugger */
+    qproperty-line-fg-deref-code: ${color_yellow};
+    qproperty-line-fg-deref-writable-code: ${color_bright_yellow};
+    qproperty-line-fg-deref-data: ${color_bright_cyan};
+    qproperty-line-fg-deref-rodata: ${color_foreground};
+    qproperty-line-fg-deref-stack: ${color_bright_purple};
+    qproperty-line-fg-deref-heap: ${color_bright_red};
+    qproperty-line-fg-deref-number: ${color_foreground_lighter};
 }
 
 CustomIDAMemo[debugging="true"]
@@ -606,7 +615,6 @@ TCpuRegs
     qproperty-register-changed: #FFFF7F;
     qproperty-register-edited: #FF7F17;
     qproperty-register-unavailable: #808080;
-    background-color: ${color_background};
 }
 
 TCpuRegs ui_label_t
